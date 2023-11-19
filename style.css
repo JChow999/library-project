@@ -1,8 +1,4 @@
 #book-form {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
 
     & form {
         position: fixed;
@@ -17,20 +13,16 @@
         background-color: aliceblue;
         transform: translate(-50%, -50%);
     }
+
+    &::backdrop {
+        background-color: rgb(0, 0, 0, 0.5);
+    }
 }
 
 .close-form {
     font-size: 1rem;
     cursor: pointer;
 }
-
-.modal-backdrop {
-    background-color: rgb(0,0,0,0.5);
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
-}
-
 
 form {
     display: grid;

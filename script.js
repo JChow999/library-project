@@ -1,10 +1,16 @@
 const titleInput = document.querySelector("#book-title");
 const authorInput = document.querySelector("#book-author");
 
-const addNewBtn = document.querySelector("#new-book-form");
+const newBookBtn = document.querySelector("#new-book-form");
 const bookForm = document.querySelector("#book-form");
 const showBookForm = document.querySelector('#new-book-form');
 const modalBackdrop = document.querySelector(".modal-backdrop");
+
+const bookTitle = document.querySelector("#book-title");
+const bookAuthor = document.querySelector("#book-author");
+const bookPages = document.querySelector("#book-pages");
+const bookRead = document.querySelector("#book-read");
+const bookSubmit = document.querySelector("#submit-book")
 
 const myLibrary = [];
 
@@ -21,14 +27,14 @@ function addBookToLibrary(newBook) {
     console.log(myLibrary)
 }
 
-addNewBtn.addEventListener('click', () => {
-    bookForm.style.display = "block";
+newBookBtn.addEventListener('click', () => {
+    bookForm.showModal();
 })
 
 document.addEventListener('click', function(e) {
     console.log(e.target)
-    if (e.target.classList.contains("modal-backdrop") || e.target.classList.contains("close-form")) {
-        bookForm.style.display = "none";
+    if (e.target === bookForm || e.target.classList.contains("close-form")) {
+        bookForm.close();
     }
 })
 
