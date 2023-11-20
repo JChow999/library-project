@@ -1,5 +1,4 @@
-const titleInput = document.querySelector("#book-title");
-const authorInput = document.querySelector("#book-author");
+const libraryDisp = document.querySelector(".libraryDisp")
 
 const newBookBtn = document.querySelector("#new-book-btn");
 const bookFormModal = document.querySelector("#book-form-modal");
@@ -35,13 +34,9 @@ document.addEventListener('click', function(e) {
     }
 })
 
-bookSubmit.addEventListener('click', () => {
-    if (newBookForm.checkValidity()) {
-
-        let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.value)
-        addBookToLibrary(newBook)
-        bookFormModal.close();
-    }
+bookSubmit.addEventListener('click', (e) => {
+    e.preventDefault()
+    checkBookValidity()
 })
 
 // Temporary
@@ -49,14 +44,45 @@ document.addEventListener("keydown", (e) => {
     if (e.key == "Enter") console.log(myLibrary)
 })
 
+
+//Functions
+
+function checkBookValidity() {
+    if (newBookForm.checkValidity()) {
+        let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.value)
+        addBookToLibrary(newBook)
+        bookFormModal.close();
+    }
+}
+
 function showBookOnSite() {
-    console.log()
+    console.log();
+    let bookDisp = document.createElement(div);
+    let bookDispTitle = document.createElement(h2);
+
+    bookDisp.className = "book";
 }
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
-    console.log(myLibrary)
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPages.value = "";
+    bookRead.value = "";
+    console.log(myLibrary);
 }
 
-let hobbit = new Book("Hobbit", "Tolken", "200", true)
+function updateBooks() {
+
+}
+
+function removeBook() {
+
+}
+
+function changeReadStatus() {
+
+}
+
+let hobbit = new Book("Hobbit", "Tolken", 200, true)
 addBookToLibrary(hobbit)
