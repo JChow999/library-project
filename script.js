@@ -13,12 +13,13 @@ const bookSubmit = document.querySelector("#submit-book")
 
 const myLibrary = [];
 
-// Book Constructor
-function Book(title, author, pages, read_status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read_status = read_status;
+class Book {
+    constructor(title, author, pages, read_status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read_status = read_status;
+    }
 }
 
 // Event listeners
